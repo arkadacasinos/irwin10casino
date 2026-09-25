@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+}
+
+:root {
+  color-scheme: dark;
+  --background: #111414;
+  --foreground: #f4f1e8;
+  --card: #1a2020;
+  --card-foreground: #f4f1e8;
+  --border: #303938;
+  --muted: #aab0aa;
+  --muted-foreground: #aab0aa;
+  --primary: #d9af57;
+  --primary-foreground: #111414;
+  --accent: #86a99a;
+  --accent-foreground: #111414;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--background); }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
+
+.irwin-shell { min-height: 100vh; overflow: hidden; }
+.irwin-header, .irwin-hero, .irwin-intro, .irwin-keywords, .irwin-safe, .irwin-footer { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+.irwin-header { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; border-bottom: 1px solid var(--border); }
+.irwin-brand { display: inline-flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 800; letter-spacing: -.04em; }
+.irwin-brand em { color: var(--primary); font-style: normal; }
+.irwin-mark { display: grid; width: 31px; height: 31px; place-items: center; border: 1px solid var(--primary); color: var(--primary); font-family: Georgia, serif; font-size: 21px; }
+.irwin-nav { display: flex; gap: 28px; color: var(--muted); font-size: 13px; }
+.irwin-nav a:hover, .irwin-hashtags a:hover { color: var(--primary); }
+.irwin-hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; padding: 76px 0 92px; }
+.irwin-kicker { margin: 0 0 18px; color: var(--primary); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+h1, h2, p { margin-top: 0; }
+.irwin-hero h1 { max-width: 650px; margin-bottom: 24px; font-family: Georgia, serif; font-size: clamp(43px, 6vw, 76px); font-weight: 400; line-height: .98; letter-spacing: -.06em; text-wrap: balance; }
+.irwin-lead { max-width: 560px; color: var(--muted); font-size: 17px; line-height: 1.65; }
+.irwin-actions { display: flex; gap: 12px; margin: 32px 0 44px; }
+.irwin-primary, .irwin-secondary { padding: 14px 20px; font-size: 13px; font-weight: 700; }
+.irwin-primary { background: var(--primary); color: var(--primary-foreground); }
+.irwin-secondary { border: 1px solid var(--border); color: var(--foreground); }
+.irwin-proof { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); font-size: 11px; }
+.irwin-proof strong { display: block; margin-bottom: 5px; color: var(--primary); font-size: 14px; }
+.irwin-hero-art { position: relative; min-height: 470px; }
+.irwin-hero-art img { width: 100%; height: 470px; object-fit: cover; filter: saturate(.75); }
+.irwin-art-label { position: absolute; right: 20px; bottom: 18px; padding: 10px 13px; background: #111414cc; color: var(--primary); font-family: Georgia, serif; font-size: 13px; line-height: 1.05; }
+.irwin-art-label b { font-size: 22px; font-weight: 400; }
+.irwin-intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; padding: 58px 0; border-top: 1px solid var(--border); }
+.irwin-intro h2, .irwin-safe h2 { margin-bottom: 0; font-family: Georgia, serif; font-size: clamp(30px, 4vw, 48px); font-weight: 400; line-height: 1.05; letter-spacing: -.04em; }
+.irwin-intro > p, .irwin-safe p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.irwin-keywords { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.irwin-keywords article { min-height: 205px; padding: 28px; background: var(--background); }
+.irwin-keywords article:hover { background: var(--card); }
+.irwin-keywords h2 { margin-bottom: 16px; font-size: 17px; font-weight: 700; line-height: 1.25; }
+.irwin-keywords p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.irwin-keywords strong { color: var(--foreground); }
+.irwin-safe { display: grid; grid-template-columns: 160px 1fr; gap: 40px; align-items: start; margin-top: 92px; padding: 44px 0 100px; border-top: 1px solid var(--border); }
+.irwin-safe-number { color: var(--accent); font-family: Georgia, serif; font-size: 43px; letter-spacing: -.06em; }
+.irwin-safe h2 { max-width: 680px; margin-bottom: 20px; }
+.irwin-safe p { max-width: 700px; }
+.irwin-footer { display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; padding: 30px 0 42px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+.irwin-footer .irwin-brand { color: var(--foreground); }
+.irwin-footer p { margin: 14px 0 0; line-height: 1.5; }
+.irwin-hashtags { display: flex; flex-wrap: wrap; align-content: start; gap: 8px 14px; }
+.irwin-hashtags a { color: var(--muted); }
+.irwin-copyright { grid-column: 1 / -1; padding-top: 14px; border-top: 1px solid var(--border); }
+
+@media (max-width: 760px) {
+  .irwin-header, .irwin-hero, .irwin-intro, .irwin-keywords, .irwin-safe, .irwin-footer { width: min(100% - 28px, 560px); }
+  .irwin-nav { display: none; }
+  .irwin-hero { display: flex; flex-direction: column; gap: 36px; align-items: stretch; padding: 55px 0 65px; }
+  .irwin-hero h1 { font-size: clamp(42px, 13vw, 68px); }
+  .irwin-hero-art, .irwin-hero-art img { min-height: 330px; height: 330px; }
+  .irwin-intro, .irwin-safe { display: flex; flex-direction: column; gap: 22px; }
+  .irwin-keywords { grid-template-columns: 1fr; }
+  .irwin-keywords article { min-height: 0; padding: 24px; }
+  .irwin-safe { margin-top: 65px; padding-bottom: 65px; }
+  .irwin-footer { grid-template-columns: 1fr; }
+  .irwin-copyright { grid-column: auto; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .irwin-primary, .irwin-secondary, .irwin-keywords article { transition: background-color .2s ease, color .2s ease; }
+}
+
+.dark { color-scheme: dark; }
+body { @apply antialiased; }
